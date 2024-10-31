@@ -1,0 +1,211 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #FF6F61, #6FA3EF); 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full height */
+    overflow: hidden; /* Prevents overflow */
+    position: relative; /* Allow absolute positioning for decorations */
+}
+
+
+/*Header / Footer Stuff */
+
+
+.hidden {
+    display: none; /* Hides elements */
+}
+
+header {
+    text-align: center;
+    color: #fff; 
+    margin-bottom: 20px; /* Space below header */
+}
+
+h1 {
+    font-size: 36px; 
+    margin: 0; 
+    padding: 10px; 
+    background: linear-gradient(45deg, #FF6F61, #6FA3EF); 
+    border-radius: 10px; /* Round corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); 
+}
+
+p {
+    font-size: 24px; 
+    margin: 6px 0; 
+    color: #FFFFFF; 
+    background: rgba(255, 255, 255, 0.2); 
+    padding: 7px; 
+    border-radius: 10px; /* Round corners */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); 
+    max-width: 600px; 
+}
+
+
+
+
+
+#end-screen {
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: rgba(0, 0, 0, 0.85); 
+    color: #fff; 
+    text-align: center; 
+    padding: 20px; 
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    border-radius: 0px; 
+    display: flex; 
+    flex-direction: column; /* Vertical stacking */
+    justify-content: center; /* Center vertically */
+    align-items: center; 
+    transition: opacity 0.5s ease; 
+    opacity: 0; /*Hidden at start */
+}
+
+#end-screen.active {
+    opacity: 1; /* Show when active */
+}
+
+h2 {
+    font-size: 36px; 
+    margin-bottom: 10px; 
+    background: linear-gradient(45deg, #FF6F61, #6FA3EF); 
+    -webkit-background-clip: text; /* Clip background to text */
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); 
+}
+
+
+
+button {
+    padding: 10px 20px;
+    font-size: 20px; 
+    color: #fff; 
+    background: #FF4081;
+    border: none; 
+    border-radius: 5px; /* Round corners */
+    cursor: pointer;
+    transition: background 0.3s ease; 
+}
+
+button:hover {
+    background: #FF6F61; 
+}
+
+
+
+
+footer {
+    text-align: center;
+    color: #fff; 
+    margin-top: 10px; /* Space above footer */
+}
+
+/* Game Objects */
+
+#game {
+    position: relative;
+    width: 400px; /* Width of the game area */
+    height: 600px; /* Height of the game area */
+    border: 5px solid #333; /* Border around the game area */
+    border-radius: 15px; /* Round corners */
+    overflow: hidden; /* Prevents falling objects from showing outside */
+    background-color: rgba(255, 255, 255, 0.8); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); 
+    backdrop-filter: blur(10px); /* Blurs the background behind the game area */
+}
+
+#basket {
+    position: absolute;
+    bottom: 0; /* Position the basket at the bottom */
+    width: 100px; /* Width of the basket */
+    height: 30px; /* Height of the basket */
+    background: linear-gradient(90deg, #4CAF50, #388E3C); 
+    border-radius: 5px; /* Round corners for the basket */
+    left: 50%; /* Center the basket initially */
+    transform: translateX(-50%); /* Center the basket */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); 
+}
+
+.falling-object {
+    position: absolute;
+    width: 30px;
+    height: 30px; 
+    background-color: #FF4081; 
+    border-radius: 50%; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); 
+    transition: background-color 0.3s ease; /* Smooth color transition */
+}
+
+
+.falling-object:hover {
+    background-color: #F50057; 
+}
+
+
+.decorative {
+    position: absolute;
+    border-radius: 50%; /* Round shapes */
+    opacity: 0.5; 
+    pointer-events: none; /* Ignore mouse events */
+}
+
+.shape1 {
+    width: 100px; 
+    height: 100px; 
+    background-color: rgba(255, 255, 255, 0.3); 
+    top: 50px; 
+    left: 30px; 
+}
+
+.shape2 {
+    width: 150px; 
+    height: 150px; 
+    background-color: rgba(255, 255, 255, 0.3); 
+    top: 300px; 
+    right: 50px; 
+}
+
+.shape3 {
+    width: 200px; 
+    height: 200px; 
+    background-color: rgba(255, 255, 255, 0.3); 
+    bottom: 100px; 
+    left: 100px; 
+}
+
+.shape4 {
+    width: 50px; 
+    height: 50px; 
+    background-color: rgba(255, 255, 255, 0.3); 
+    top: 400px; 
+    right: 150px;
+}
+
+
+/* Game Score Display*/
+
+#score {
+    font-size: 28px; 
+    color: #fff; 
+    margin: 10px 0; 
+    padding: 10px 20px; 
+    background: linear-gradient(45deg, #FF4081, #FF9800); 
+    border-radius: 10px; /* Round corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); 
+    text-align: center; /* Center text within the box */
+    transition: transform 0.2s ease; /* Animation effect for hover */
+}
+
+
+#score:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}

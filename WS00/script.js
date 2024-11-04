@@ -14,10 +14,10 @@ function updateScore() {
 
 function moveBasket(event) {
     if (gameOver) return;
-    if (event.key === 'ArrowLeft' && basketPosition > 30) {
-        basketPosition -= 20;
-    } else if (event.key === 'ArrowRight' && basketPosition < game.clientWidth - 30) {
-        basketPosition += 20;
+    if (event.key === 'ArrowLeft' && basketPosition > 50) {
+        basketPosition -= 40;
+    } else if (event.key === 'ArrowRight' && basketPosition < game.clientWidth - 50) {
+        basketPosition += 40;
     }
     basket.style.left = basketPosition + 'px';
 }
